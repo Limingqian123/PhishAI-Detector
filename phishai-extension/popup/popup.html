@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <img src="../assets/icon128.png" width="32" height="32">
+      <h1>PhishAI Detector</h1>
+    </div>
+    <div class="current-site" id="currentSite">
+      <div class="loading">分析中...</div>
+    </div>
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-label">今日检测</span>
+        <span class="stat-value" id="todayCount">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">拦截钓鱼</span>
+        <span class="stat-value" id="blockedCount">0</span>
+      </div>
+    </div>
+    <div class="recent-scans">
+      <h3>最近扫描</h3>
+      <ul id="recentList"></ul>
+    </div>
+    <div class="footer">
+      <button id="settingsBtn">⚙️ 设置</button>
+      <button id="reportBtn">📝 报告误报</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

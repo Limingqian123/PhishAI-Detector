@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>PhishAI 设置</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; padding: 20px; max-width: 600px; margin: 0 auto; }
+    h1 { font-size: 24px; }
+    .section { background: #f9f9f9; border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; font-weight: 500; }
+    input[type="text"], input[type="password"], select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+    .actions { display: flex; gap: 10px; }
+    .btn-primary { background: #1976d2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+    .btn-secondary { background: #e0e0e0; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+    .status { margin-top: 15px; padding: 10px; border-radius: 4px; display: none; }
+    .success { background: #d4edda; color: #155724; display: block; }
+    .error { background: #f8d7da; color: #721c24; display: block; }
+  </style>
+</head>
+<body>
+  <h1>PhishAI Detector 设置</h1>
+  <div class="section">
+    <h2>API 配置</h2>
+    <div class="form-group">
+      <label>API 地址:</label>
+      <input type="text" id="apiUrl" placeholder="http://localhost:8000">
+    </div>
+    <div class="form-group">
+      <label>API 密钥 (可选):</label>
+      <input type="password" id="apiKey">
+    </div>
+  </div>
+  <div class="section">
+    <h2>检测设置</h2>
+    <div class="form-group">
+      <label><input type="checkbox" id="enabled" checked> 启用实时检测</label>
+    </div>
+    <div class="form-group">
+      <label>检测阈值 (0-100):</label>
+      <input type="range" id="threshold" min="0" max="100" value="50">
+      <span id="thresholdValue">50%</span>
+    </div>
+    <div class="form-group">
+      <label>警告动作:</label>
+      <select id="warningAction">
+        <option value="notify">仅通知</option>
+        <option value="redirect">重定向到警告页</option>
+        <option value="block">直接阻断</option>
+      </select>
+    </div>
+  </div>
+  <div class="section">
+    <h2>隐私设置</h2>
+    <div class="form-group">
+      <label><input type="checkbox" id="anonymousReporting"> 匿名报告检测到的钓鱼网站</label>
+    </div>
+    <div class="form-group">
+      <label><input type="checkbox" id="localCache" checked> 启用本地缓存</label>
+    </div>
+  </div>
+  <div class="actions">
+    <button id="saveBtn" class="btn-primary">保存设置</button>
+    <button id="resetBtn" class="btn-secondary">重置</button>
+  </div>
+  <div id="status" class="status"></div>
+  <script src="options.js"></script>
+</body>
+</html>

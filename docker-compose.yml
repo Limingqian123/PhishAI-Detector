@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  phishai:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./path-to-your-key.json:/app/key.json:ro   # 如果有服务账号JSON
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/key.json
+    restart: unless-stopped
