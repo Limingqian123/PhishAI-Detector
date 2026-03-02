@@ -60,7 +60,7 @@ class AnalysisPipeline:
         vt_stats = threat_result.get('virustotal', {})
         if isinstance(vt_stats, dict) and vt_stats.get('malicious', 0) > 0:
             phishing_score += 20
-        if threat_result.get('phishtank') is True:
+        if threat_result.get('urlhaus') is True:
             phishing_score += 20
         if language_result.get('is_phishing'):
             phishing_score += 30

@@ -9,6 +9,7 @@ class LanguageAnalyzer:
     def __init__(self):
         if settings.OPENAI_API_KEY:
             openai.api_key = settings.OPENAI_API_KEY
+            openai.api_base = "https://api.deepseek.com/v1"
         else:
             logger.warning("未配置OpenAI API密钥，语言分析将不可用")
             openai.api_key = None
@@ -34,7 +35,7 @@ class LanguageAnalyzer:
 """
         try:
             response = await openai.ChatCompletion.acreate(
-                model="gpt-4",
+                model="deepseek-chat",
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.0,
                 max_tokens=150

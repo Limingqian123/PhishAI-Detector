@@ -4,6 +4,12 @@ from src.models.request import URLRequest
 from src.models.response import AnalysisResponse
 from src.orchestrator.pipeline import AnalysisPipeline
 import logging
+import sys
+import asyncio
+
+# Windows 下设置支持子进程的事件循环策略
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
 app = FastAPI(
     title="PhishAI-Detector",

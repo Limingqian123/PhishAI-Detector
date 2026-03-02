@@ -32,7 +32,7 @@ LLM分析: {analysis_data['language'].get('explanation', '')}
 """
         try:
             response = await openai.ChatCompletion.acreate(
-                model="gpt-4",
+                model="deepseek-chat",
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.3,
                 max_tokens=200
